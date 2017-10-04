@@ -1,16 +1,15 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import Diagnose from './src/pages/Diagnose'
+import Symptoms from '../utilities/symptoms'
 
 
-
-export default class App extends React.Component {
+export default class Diagnose extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Learn More" onPress={()=> alert('I was passe!')} />
-        <Diagnose />
-        <Text> Some texts!</Text>
+
+
+        <Text> Something </Text>
       </View>
     );
   }
