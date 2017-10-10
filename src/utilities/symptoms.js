@@ -5,4 +5,5 @@ const Symptoms = {
   }
 }
 
-export { Symptoms };
+const Amir = "amir"
+export { Symptoms, Amir };
