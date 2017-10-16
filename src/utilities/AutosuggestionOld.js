@@ -11,7 +11,18 @@ const API = 'https://swapi.co/api';
 const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
 
 class Autosuggestion extends Component {
+  static renderFilm(film) {
+    const { title, director, opening_crawl, episode_id } = film;
+    const roman = episode_id < ROMAN.length ? ROMAN[episode_id] : episode_id;
 
+    return (
+      <View>
+        <Text style={styles.titleText}>{roman}. {title}</Text>
+        <Text style={styles.directorText}>({director})</Text>
+        <Text style={styles.openingText}>{opening_crawl}</Text>
+      </View>
+    );
+  }
 
   constructor(props) {
     super(props);
@@ -65,6 +76,15 @@ class Autosuggestion extends Component {
           )}
         />
 
+        <View style={styles.descriptionContainer}>
+          {films.length > 0 ? (
+            Autosuggestion.renderFilm(films[0])
+          ) : (
+            <Text style={styles.infoText}>
+              Enter Title of a Star Wars movie
+            </Text>
+          )}
+        </View>
 
       </View>
     );
