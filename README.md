@@ -18,3 +18,13 @@ Perf.start()
 Perf.stop()
 Perf.printWasted()
 ```
+
+## Debug
+* install and use debug tool 
+```javascript
+npm install -g react-devtools
+```
+* Then run
+```javascript
+react-devtools
+```
