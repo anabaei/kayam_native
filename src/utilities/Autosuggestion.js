@@ -16,56 +16,53 @@ class Autosuggestion extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      films: [],
+      symptoms: [],
       query: ''
     };
   }
 
   componentDidMount() {
-    fetch(`${API}/films/`).then(res => res.json()).then((json) => {
-      const { results: films } = json;
-      this.setState({ films });
+    // fetch(`${API}/symptoms/`).then(res => res.json()).then((json) => {
+    fetch('https://kayamspa.herokuapp.com/results/index').then(res => res.json()).then((json) => {
+      const symptoms = json;
+      this.setState({ symptoms });
     });
   }
 
-  findFilm(query) {
+  findsymptom(query) {
     if (query === '') {
       return [];
     }
 
-    const { films } = this.state;
-    const regex = new RegExp(`${query.trim()}`, 'i');
-    return films.filter(film => film.title.search(regex) >= 0);
+    const { symptoms } = this.state;
+    const regex = new RegExp( "^" + query, "i");
+
+    return symptoms.filter(symptom => regex.test(symptom.name) );
   }
 
   render() {
 
     const { query } = this.state;
-    const films = this.findFilm(query);
+    const symptoms = this.findsymptom(query);
     const comp = (a, b) => a.toLowerCase().trim() === b.toLowerCase().trim();
-
     return (
       <View style={styles.container}>
-
         <Autocomplete
           autoCapitalize="none"
           autoCorrect={false}
           containerStyle={styles.autocompleteContainer}
-          data={films.length === 1 && comp(query, films[0].title) ? [] : films}
+          data={symptoms.length === 1 && comp(query, symptoms[0].name) ? [] : symptoms}
           defaultValue={query}
-          onChangeText={text => this.setState({ query: text })}
-          placeholder="Enter Star Wars film title"
-
-          renderItem={({ title, release_date }) => (
-            <TouchableOpacity onPress={() => this.setState({ query: title })}>
+          onChangeText= {text => this.setState({ query: text })}
+          placeholder="Enter Star Wars symptom name"
+          renderItem= {({ name, release_date }) => (
+            <TouchableOpacity onPress={() => this.setState({ query: name })}>
               <Text style={styles.itemText}>
-                {title} ({release_date.split('-')[0]})
+                {name}
               </Text>
             </TouchableOpacity>
           )}
         />
-
-
       </View>
     );
   }
@@ -94,7 +91,7 @@ const styles = StyleSheet.create({
   infoText: {
     textAlign: 'center'
   },
-  titleText: {
+  nameText: {
     fontSize: 18,
     fontWeight: '500',
     marginBottom: 10,
