@@ -1,5 +1,37 @@
 ### Kayam Mobile Version
 
+## Debug
+* install and use debug tool 
+```javascript
+npm install -g react-devtools
+```
+* Then run
+```javascript
+react-devtools
+```
+
+### RegExp
+* `query` is user input, so to search through all accurance of symptoms we go through of an array of hashes and check `name` property
+of each one and if it was true return it from filter in a case sensitive way. test function is RegExp is true/false 
+```javascript
+var matcher = new RegExp("^" + query , "i" );
+arrayofsymptoms.filter(b => matcher.test(b.name) )
+```
+
+### Autocomplete React-Native
+* Autocomplete has different attributes but one is `onChangeText` which the attribute is text that user type. In below case we take usertext and assign it to state name `query`
+```javascript
+<Autocomplete 
+.
+.
+.
+onChangeText= {text => this.setState({ query: text })}
+.
+.
+</>
+```
+
+
 #### When React calls Render Function
 * React has a virtual DOM and only updates the real DOM when required to re-render. A re-render can only be triggered if a component’s state has changed. The state can change from a props change, or from a direct setState change. 
 * Not really smart now! Component changed? Re-render. Parent changed? Re-render. Section of props that doesn't actually impact the view changed? Re-render. re-rendering unnecessarily does waste cycles but React plays it safe and re-renders whenever there’s a change to the state, important or not.
@@ -17,28 +49,6 @@ Perf.start()
 // Do the render
 Perf.stop()
 Perf.printWasted()
-```
-
-## Debug
-* install and use debug tool 
-```javascript
-npm install -g react-devtools
-```
-* Then run
-```javascript
-react-devtools
-```
-### Autocomplete React-Native
-* Autocomplete has different attributes but one is `onChangeText` which the attribute is text that user type. In below case we take usertext and assign it to state name `query`
-```javascript
-<Autocomplete 
-.
-.
-.
-onChangeText= {text => this.setState({ query: text })}
-.
-.
-</>
 ```
 
 
