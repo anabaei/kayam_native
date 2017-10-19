@@ -28,3 +28,6 @@ npm install -g react-devtools
 ```javascript
 react-devtools
 ```
+
+#### JS notes
+* Arrow functions dont have its own this and are best to use parent this. Also first arguments before arrow are params and after arrow are return object.
