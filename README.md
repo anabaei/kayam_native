@@ -14,8 +14,9 @@ react-devtools
 * `query` is user input, so to search through all accurance of symptoms we go through of an array of hashes and check `name` property
 of each one and if it was true return it from filter in a case sensitive way. test function is RegExp is true/false 
 ```javascript
+// query = "aB"
 var matcher = new RegExp("^" + query , "i" );
-// matcher = /^ab/i when query = "aB"
+// matcher = /^ab/i 
 arrayofsymptoms.filter(b => matcher.test(b.name) )
 ```
 
