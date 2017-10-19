@@ -30,4 +30,4 @@ react-devtools
 ```
 
 #### JS notes
-* Arrow functions dont have its own this and are best to use parent this. Also first arguments before arrow are params and after arrow are return object.
+* Arrow functions dont have its own this and are best to use parent this. Also first arguments before arrow are params and after arrow are return object, good [resource](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
