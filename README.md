@@ -28,6 +28,12 @@ npm install -g react-devtools
 ```javascript
 react-devtools
 ```
+### Autocomplete React-Native
+* Autocomplete has different attributes but one is `onChangeText` which the attribute is text that user type. In below case we take usertext and assign it to state name `query`
+```javascript
+onChangeText= {text => this.setState({ query: text })}
+```
+
 
 #### JS notes
 * Arrow functions dont have its own this and are best to use parent this. Also first arguments before arrow are params and after arrow are return object, good [resource](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
