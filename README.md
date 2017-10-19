@@ -15,6 +15,7 @@ react-devtools
 of each one and if it was true return it from filter in a case sensitive way. test function is RegExp is true/false 
 ```javascript
 var matcher = new RegExp("^" + query , "i" );
+// matcher = /^ab/i when query = "aB"
 arrayofsymptoms.filter(b => matcher.test(b.name) )
 ```
 
