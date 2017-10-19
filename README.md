@@ -31,7 +31,14 @@ react-devtools
 ### Autocomplete React-Native
 * Autocomplete has different attributes but one is `onChangeText` which the attribute is text that user type. In below case we take usertext and assign it to state name `query`
 ```javascript
+<Autocomplete 
+.
+.
+.
 onChangeText= {text => this.setState({ query: text })}
+.
+.
+</>
 ```
 
 
