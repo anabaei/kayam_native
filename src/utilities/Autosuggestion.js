@@ -7,10 +7,19 @@ import {
   View
 } from 'react-native';
 
-const API = 'https://swapi.co/api';
-const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
+const API = 'https://kayamspa.herokuapp.com/results/index';
+
 
 class Autosuggestion extends Component {
+
+  static renderSymptom(symptom) {
+    const { id } = symptom;
+    return (
+      <View>
+        <Text style={styles.titleText}>{id}</Text>
+      </View>
+    );
+  }
 
 
   constructor(props) {
@@ -23,7 +32,7 @@ class Autosuggestion extends Component {
 
   componentDidMount() {
     // fetch(`${API}/symptoms/`).then(res => res.json()).then((json) => {
-    fetch('https://kayamspa.herokuapp.com/results/index').then(res => res.json()).then((json) => {
+    fetch(`${API}`).then(res => res.json()).then((json) => {
       const symptoms = json;
       this.setState({ symptoms });
     });
@@ -54,8 +63,8 @@ class Autosuggestion extends Component {
           data={symptoms.length === 1 && comp(query, symptoms[0].name) ? [] : symptoms}
           defaultValue={query}
           onChangeText= {text => this.setState({ query: text })}
-          placeholder="Enter Star Wars symptom name"
-          renderItem= {({ name, release_date }) => (
+          placeholder="Enter symptom name"
+          renderItem= {({ name, id }) => (
             <TouchableOpacity onPress={() => this.setState({ query: name })}>
               <Text style={styles.itemText}>
                 {name}
@@ -63,6 +72,15 @@ class Autosuggestion extends Component {
             </TouchableOpacity>
           )}
         />
+        <View style={styles.descriptionContainer}>
+          {symptoms.length > 0 ? (
+            Autosuggestion.renderSymptom(symptoms[0])
+          ) : (
+            <Text style={styles.infoText}>
+              id
+            </Text>
+          )}
+        </View>
       </View>
     );
   }
@@ -70,29 +88,32 @@ class Autosuggestion extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F5FCFF',
-    flex: 1,
-    paddingTop: 25
+    backgroundColor: '#F5FdEF',
+    flex: .06
+
   },
   autocompleteContainer: {
-    marginLeft: 10,
-    marginRight: 10
+    marginLeft: 0,
+    marginRight: 0
+
   },
   itemText: {
     fontSize: 15,
-    margin: 2
+    margin: 8,
+    opacity: 1
   },
+
   descriptionContainer: {
     // `backgroundColor` needs to be set otherwise the
     // autocomplete input will disappear on text input.
     backgroundColor: '#F5FCFF',
-    marginTop: 8
+    marginTop: 22
   },
   infoText: {
     textAlign: 'center'
   },
   nameText: {
-    fontSize: 18,
+    fontSize: 12,
     fontWeight: '500',
     marginBottom: 10,
     marginTop: 10,

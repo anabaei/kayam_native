@@ -12,7 +12,10 @@ export default class App extends React.Component {
         <Button title="Learn More" onPress={()=> alert('I was passe!')} />
         <Diagnose />
         <Autosuggestion />
-        <Text> Some texts!</Text>
+        <Text> yt </Text>
+        <Autosuggestion />
+
+
       </View>
     );
   }
