@@ -1,19 +1,31 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import Diagnose from './src/pages/Diagnose'
-import Autosuggestion from './src/utilities/Autosuggestion'
 
+import { Dropdown } from 'react-native-material-dropdown';
+import Screen from './src/utilities/Screen'
 
 
 export default class App extends React.Component {
   render() {
+
+    let data = [{
+      value: 'Male',
+    }, {
+      value: 'Female',
+    }];
+
     return (
       <View style={styles.container}>
+        <Dropdown
+        label='Gender'
+        data={data}
+      />
         <Button title="Learn More" onPress={()=> alert('I was passe!')} />
         <Diagnose />
-        <Autosuggestion />
+        <Screen />
         <Text> yt </Text>
-        <Autosuggestion />
+
 
 
       </View>

@@ -25,6 +25,10 @@
     "react-autosuggest": "^9.3.2",
     "react-native": "^0.48.4",
     "react-native-autocomplete-input": "^3.4.0",
-    "react-native-google-places-autocomplete": "^1.3.6"
+    "react-native-autocomplete-select": "^1.0.0",
+    "react-native-google-places-autocomplete": "^1.3.6",
+    "react-native-material-dropdown": "^0.5.2",
+    "react-native-progressive-input": "^1.0.3",
+    "react-native-vector-icons": "^4.4.2"
   }
 }

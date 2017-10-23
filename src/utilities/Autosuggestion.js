@@ -9,7 +9,6 @@ import {
 
 const API = 'https://kayamspa.herokuapp.com/results/index';
 
-
 class Autosuggestion extends Component {
 
   static renderSymptom(symptom) {
@@ -20,7 +19,6 @@ class Autosuggestion extends Component {
       </View>
     );
   }
-
 
   constructor(props) {
     super(props);
